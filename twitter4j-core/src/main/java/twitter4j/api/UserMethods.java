@@ -54,6 +54,19 @@ public interface UserMethods {
      * Return up to 100 users worth of extended information, specified by either ID, screen name, or combination of the two. The author's most recent status (if the authenticating user has permission) will be returned inline.
      * <br>This method calls http://api.twitter.com/1/users/lookup.json
      *
+     * @param ids Specifies the ids of the users to return.
+     * @param screenNames Specifies the screen names of the users to return.
+     * @return users
+     * @throws TwitterException when Twitter service or network is unavailable
+     * @see <a href="https://dev.twitter.com/docs/api/1/get/users/lookup">GET users/lookup | Twitter Developers</a>
+     * @since Twitter4J 2.1.1
+     */
+    ResponseList<User> lookupUsers(long[] ids, String[] screenNames) throws TwitterException;
+
+    /**
+     * Return up to 100 users worth of extended information, specified by screen name. The author's most recent status (if the authenticating user has permission) will be returned inline.
+     * <br>This method calls http://api.twitter.com/1/users/lookup.json
+     *
      * @param screenNames Specifies the screen names of the users to return.
      * @return users
      * @throws TwitterException when Twitter service or network is unavailable
@@ -63,10 +76,10 @@ public interface UserMethods {
     ResponseList<User> lookupUsers(String[] screenNames) throws TwitterException;
 
     /**
-     * Return up to 100 users worth of extended information, specified by either ID, screen name, or combination of the two. The author's most recent status (if the authenticating user has permission) will be returned inline.
+     * Return up to 100 users worth of extended information, specified by ID. The author's most recent status (if the authenticating user has permission) will be returned inline.
      * <br>This method calls http://api.twitter.com/1/users/lookup.json
      *
-     * @param ids Specifies the screen names of the users to return.
+     * @param ids Specifies the ids of the users to return.
      * @return users
      * @throws TwitterException when Twitter service or network is unavailable
      * @see <a href="https://dev.twitter.com/docs/api/1/get/users/lookup">GET users/lookup | Twitter Developers</a>

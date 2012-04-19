@@ -107,6 +107,11 @@ public class UserMethodsTest extends TwitterTestBase {
         assertNotNull(DataObjectFactory.getRawJSON(users.get(0)));
         assertEquals(users.get(0), DataObjectFactory.createUser(DataObjectFactory.getRawJSON(users.get(0))));
         assertNotNull(DataObjectFactory.getRawJSON(users));
+
+        users = twitter1.lookupUsers(new long[]{id1.id}, new String[]{id2.screenName});
+        assertEquals(2, users.size());
+        assertContains(users, id1);
+        assertContains(users, id2);
     }
 
     private void assertContains(ResponseList<User> users, TestUserInfo user) {

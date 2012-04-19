@@ -498,6 +498,17 @@ class TwitterImpl extends TwitterBaseImpl implements Twitter {
     /**
      * {@inheritDoc}
      */
+    public ResponseList<User> lookupUsers(long[] ids, String[] screenNames) throws TwitterException {
+        return factory.createUserList(get(conf.getRestBaseURL() +
+                "users/lookup.json", new HttpParameter[]{
+                new HttpParameter("screen_name", z_T4JInternalStringUtil.join(screenNames))
+                , new HttpParameter("user_id", z_T4JInternalStringUtil.join(screenNames))
+                , INCLUDE_ENTITIES}));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public ResponseList<User> lookupUsers(String[] screenNames) throws TwitterException {
         return factory.createUserList(get(conf.getRestBaseURL() +
                 "users/lookup.json", new HttpParameter[]{

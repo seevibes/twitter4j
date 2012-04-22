@@ -52,14 +52,13 @@
             <id>sonatype-nexus-staging</id>
             <name>Nexus Release Repository</name>
             <uniqueVersion>false</uniqueVersion>
-            <url>http://oss.sonatype.org/service/local/staging/deploy/maven2/
-            </url>
+            <url>file:///../MavenRepo/releases</url>
         </repository>
         <snapshotRepository>
             <id>org.twitter4j</id>
             <name>twitter4j.org Repository</name>
             <uniqueVersion>false</uniqueVersion>
-            <url>file:${user.home}/maven2/</url>
+            <url>file:///../MavenRepo/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
     <profiles>
